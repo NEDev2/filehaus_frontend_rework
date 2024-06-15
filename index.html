@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>file.haus - Anonymous File Uploader</title>
+    <link rel="stylesheet" href="styles.css?v5">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <main>
+        <h1>file.haus</h1>
+        <div class="kPiS6ujGnQ"><a href="https://ffis.cc"><img src="ads/ffis.webp" alt="Advertisement"></a></div>
+        <p><a href="advertising.php">(privacy-respecting advertisement - why do I advertise?)</a></p>
+        <p>
+            <input type="file" id="filetoupload">
+            <label for="filetoupload">Choose file</label>
+        </p>
+        <noscript>
+            <form action="/api/upload/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_method" value="put">
+                <label for="file">Choose file:</label>
+                <input type="file" id="file" name="file">
+                <button type="submit">Upload</button>
+            </form>
+        </noscript>
+
+        <p>
+            <progress id="upload-progress"></progress>
+        </p>
+
+        <p id="message"></p>
+        <noscript>You have JavaScript disabled. That's excellent and I commend you. Please use the <a href="nojs.php">No-JS uploader</a> until I configure the main page to work without JS as well.</noscript>
+        <p>max 200gb filesize</p>
+        <p>Support anonymous file sharing:</p>
+        <p>Donate to our XMR address:</p>
+        <p id="xmrAddress" class="xmr-address">
+            85mL8xbv8Tp1C28rEsbSqXfaAG3A48TFVSJXY1FsuEFuP9Us5nyPa1H2TwypD7HgJfGQgjTcrPZuqAwkQyJxdTr2R79bnYm
+            <button onclick="copyToClipboard()">
+                <img src="copy.png" alt="Copy" class="copy-icon">
+            </button>
+        </p>
+        <p class="disclaimer">
+            2024-12-06: Move complete.
+        </p>
+        <p>
+            <a href="about.php">About</a> / <a href="nojs.php">JavaScript-less uploader</a> / <a href="deletions.php">Deletion Log</a> / <a href="https://fuckthefeds.top">Fuck The Feds Guide</a> /
+            <a href="https://file.haus">file.haus (probably offline forever)</a> / <a href="https://filehaus.top">filehaus.top (online)</a> / <a href="https://filehaus.pk">filehaus.pk (online)</a> / <a href="https://filehaus.su">filehaus.su (online)</a> / <a href="http://fileha3hjvudqs2moembtaegnpjo5ptec3tomf5dlxx6ydwtajkkahyd.onion">.onion (online)</a><a href="http://xr256v4weabr3rdz3nqzb27bv3gkwjisuf2d57urqtmh3gx3w7da.b32.i2p">.b32.i2p (online)</a> / <a href="http://nipqehne9zrtpryw6ig5y9gu7c8gwt8ymrrncufxg1g8wf5t4rqo.loki">.loki (online)</a><br>
+        </p>
+        <div class="kPiS6ujGnQ"><p>YOUR AD HERE. Contact @tsutaja on Telegram for more information</p></div><br>
+        <div class="kPiS6ujGnQ"><p>YOUR AD HERE. Contact @tsutaja on Telegram for more information</p></div>
+    </main>
+    <script>
+        function copyToClipboard() {
+            // Get the text field
+            var copyText = document.getElementById("xmrAddress").innerText.split(" Copy text")[0];
+
+            // Create a temporary textarea element
+            var tempInput = document.createElement("textarea");
+            tempInput.value = copyText;
+            document.body.appendChild(tempInput);
+
+            // Select the text field
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(tempInput.value);
+
+            // Alert the copied text
+            alert("Copied the text: " + tempInput.value);
+
+            // Remove the temporary textarea element
+            document.body.removeChild(tempInput);
+        }
+    </script>
+    <script src="upload.js"></script>
+</body>
+</html>
