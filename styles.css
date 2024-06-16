@@ -33,14 +33,32 @@ main {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     box-sizing: border-box;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Hide scrollbar for WebKit browsers */
+main::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Internet Explorer and Edge */
+main {
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3rem; /* Adjust if necessary */
     margin-bottom: 20px;
     color: var(--primary-color);
     animation: wave 2s infinite;
+    box-sizing: border-box;
+    word-wrap: break-word; /* Ensure long words break and wrap to the next line */
+    max-width: 100%; /* Ensure the <h1> does not overflow its container */
+    overflow-wrap: break-word; /* Add this line */
 }
+
 
 @keyframes wave {
     0%, 100% { color: #1DB954; }
@@ -159,7 +177,7 @@ a:hover {
     }
     
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Adjust if necessary */
     }
 
     label[for="filetoupload"] {
@@ -177,7 +195,7 @@ a:hover {
     }
     
     h1 {
-        font-size: 2rem;
+        font-size: 2rem; /* Adjust if necessary */
     }
 
     label[for="filetoupload"] {
@@ -248,3 +266,49 @@ form button[type="submit"]:hover {
     width: 21px;
     height: 21px;
 }
+
+/* CSS for the file link */
+.message {
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-family: monospace;
+}
+
+/* .features {
+    color: rgb(26, 196, 82);
+    font-family: monospace;
+    font-size: 24px;
+    border: 2px solid var(--primary-color);
+} */
+
+.features {
+    color: var(--text-color);
+    font-family: monospace;
+    font-size: 21px;
+    border: 2px solid var(--primary-color);
+    /* padding: 20px; */
+    background-color: var(--card-background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.website_divider_hr {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 2px;
+}
+
+/* .announcement-title {
+    font-family: monospace !important;
+    font-size: 52px !important;
+}
+
+.disclaimer {
+    margin-bottom: 50px;
+    border: 1.5px solid var(--secondary-color);
+    position: relative;
+} */
