@@ -54,9 +54,9 @@ h1 {
     color: var(--primary-color);
     animation: wave 2s infinite;
     box-sizing: border-box;
-    word-wrap: break-word; /* Ensure long words break and wrap to the next line */
-    max-width: 100%; /* Ensure the <h1> does not overflow its container */
-    overflow-wrap: break-word; /* Add this line */
+    word-wrap: break-word;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 
@@ -195,7 +195,7 @@ a:hover {
     }
     
     h1 {
-        font-size: 2rem; /* Adjust if necessary */
+        font-size: 2rem;
     }
 
     label[for="filetoupload"] {
@@ -255,7 +255,6 @@ form button[type="submit"]:hover {
     border: none;
     cursor: pointer;
     transition: transform 0.3s;
-    /* padding-top: -12px; */
 }
 
 .xmr-address button:hover {
@@ -275,19 +274,11 @@ form button[type="submit"]:hover {
     font-family: monospace;
 }
 
-/* .features {
-    color: rgb(26, 196, 82);
-    font-family: monospace;
-    font-size: 24px;
-    border: 2px solid var(--primary-color);
-} */
-
 .features {
     color: var(--text-color);
     font-family: monospace;
     font-size: 21px;
     border: 2px solid var(--primary-color);
-    /* padding: 20px; */
     background-color: var(--card-background-color);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -301,14 +292,3 @@ form button[type="submit"]:hover {
     border-style: inset;
     border-width: 2px;
 }
-
-/* .announcement-title {
-    font-family: monospace !important;
-    font-size: 52px !important;
-}
-
-.disclaimer {
-    margin-bottom: 50px;
-    border: 1.5px solid var(--secondary-color);
-    position: relative;
-} */
