@@ -31,11 +31,23 @@
       fileInput.disabled = false;
     };
 
+    // Modifed this to display onion link as well
     xhr.onload = function () {
-      message.textContent = xhr.responseText;
+
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === xhr.HEADERS_RECEIVED) {
+          const contentType = client.getResponseHeader("Onion-Location");
+          let onionLink = contentType
+          let clearnetLink = xhr.responseText
+
+          // Display both the clear net link && onion link
+          message.textContent = `Link: ${clearnetLink}\nOnion Link: ${onionLink}`
+        }
+      }
+      // message.textContent = xhr.responseText;
     };
 
-    xhr.open("PUT", `api/upload/${file.name}`, true);
+    xhr.open("PUT", `/api/upload/${file.name}`, true);
     xhr.setRequestHeader("Content-Type", file.type);
     xhr.send(file);
   }
