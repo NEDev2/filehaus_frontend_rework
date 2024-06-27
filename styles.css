@@ -33,32 +33,14 @@ main {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     box-sizing: border-box;
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-    overflow-y: auto; /* Enable vertical scrolling */
-}
-
-/* Hide scrollbar for WebKit browsers */
-main::-webkit-scrollbar {
-    display: none;
-}
-
-/* Hide scrollbar for Internet Explorer and Edge */
-main {
-    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 
 h1 {
-    font-size: 3rem; /* Adjust if necessary */
+    font-size: 3rem;
     margin-bottom: 20px;
     color: var(--primary-color);
     animation: wave 2s infinite;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    max-width: 100%;
-    overflow-wrap: break-word;
 }
-
 
 @keyframes wave {
     0%, 100% { color: #1DB954; }
@@ -66,7 +48,24 @@ h1 {
 }
 
 input[type="file"] {
-    display: none;
+    display: hidden;
+}
+
+input[type="file"]::file-selector-button {
+    color: var(--text-color);
+    border: 3px solid var(--primary-color);;
+    border-radius: 0.2em;
+    background-color: var(--primary-color);
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: var(--secondary-color);
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 10px var(--button-hover-glow-color);
 }
 
 label[for="filetoupload"] {
@@ -135,6 +134,7 @@ a:hover {
     margin: 20px 0;
     font-family: monospace;
     background-color: #333;
+    overflow-wrap: anywhere;
 }
 
 .kPiS6ujGnQ {
@@ -177,7 +177,7 @@ a:hover {
     }
     
     h1 {
-        font-size: 2.5rem; /* Adjust if necessary */
+        font-size: 2.5rem;
     }
 
     label[for="filetoupload"] {
@@ -255,6 +255,7 @@ form button[type="submit"]:hover {
     border: none;
     cursor: pointer;
     transition: transform 0.3s;
+    /* padding-top: -12px; */
 }
 
 .xmr-address button:hover {
@@ -266,29 +267,24 @@ form button[type="submit"]:hover {
     height: 21px;
 }
 
-/* CSS for the file link */
-.message {
+/* New styles for the checkboxs and link */
+
+input[type="checkbox"] {
+    margin-bottom: 50px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+#expiry {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    border-radius: 5px;
+}
+
+/* CSS for the file link result */
+#message:not(:empty) {
     padding: 10px;
     border: 2px solid var(--primary-color);
     border-radius: 5px;
     font-family: monospace;
-}
-
-.features {
-    color: var(--text-color);
-    font-family: monospace;
-    font-size: 21px;
-    border: 2px solid var(--primary-color);
-    background-color: var(--card-background-color);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.website_divider_hr {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: inset;
-    border-width: 2px;
 }

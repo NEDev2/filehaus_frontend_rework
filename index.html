@@ -3,19 +3,32 @@
 <head>
     <meta charset="utf-8">
     <title>file.haus - Anonymous File Uploader</title>
-    <link rel="stylesheet" href="styles.css?v5">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add exif.js for checking for metadata -->
+    <script src="exif.js"></script>
 </head>
 <body>
     <main>
         <h1>file.haus</h1>
-        <div class="kPiS6ujGnQ"><a href="https://ffis.cc"><img src="ads/ffis.webp" alt="Advertisement" style="max-width: 100%; height: auto;"></a></div>
-        <p><a href="advertising.php">(privacy-respecting advertisement - why do I advertise?)</a></p>
+        <div class="kPiS6ujGnQ"><a href="https://www.serverhunter.com/landing/?ad=filehaus&utm_source=filehaus&utm_medium=cpc&utm_campaign=banners&utm_content=homepage"><img src="ads/serverhunter.webp"></a></div><br>
+        <p><a href="advertising.php">(privacy-respecting advertisement - why do i advertise?)</a></p>
         <p>
-            <input type="file" id="filetoupload">
-            <label for="filetoupload">Choose file</label>
+            <label for="torrent">Upload as torrent:</label>
+            <input type="checkbox" id="torrent" name="torrent">
+            <label for="expiry">Temporary upload:</label>
+            <select id="expiry" name="expiry">
+                <option value="0">Infinite</option>
+                <option value="3600">1 Hour</option>
+                <option value="86400">1 Day</option>
+                <option value="259200">3 Days</option>
+                <option value="604800">1 Week</option>
+                <option value="2592000">1 Month</option>
+            </select><br>
+            <script>document.write('<input type="file" id="filetoupload"><br>');</script>
         </p>
+
         <noscript>
             <form action="/api/upload/" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value="put">
@@ -26,63 +39,39 @@
         </noscript>
 
         <p>
-            <progress id="upload-progress"></progress>
+           <progress id="upload-progress"></progress>
         </p>
 
         <p id="message"></p>
         <noscript>You have JavaScript disabled. That's excellent and I commend you. Please use the <a href="nojs.php">No-JS uploader</a> until I configure the main page to work without JS as well.</noscript>
-        <div class="website_divider">
-            <hr class="website_divider_hr">
-        </div>
-        <div class="features">
-            <h1>file.haus features</h1>
-            <p>MAX 200GB Filesize</p>
-            <p>Anonymous file sharing</p>
-            <p>__Could add some more features in here__</p>
-        </div>
-        <p>Donate to our XMR address:</p>
+        <p>Donate with Monero:</p>
         <p id="xmrAddress" class="xmr-address">
-            85mL8xbv8Tp1C28rEsbSqXfaAG3A48TFVSJXY1FsuEFuP9Us5nyPa1H2TwypD7HgJfGQgjTcrPZuqAwkQyJxdTr2R79bnYm
-            <button onclick="copyToClipboard()">
+        488DuSeQrh85TbxEcF4zTG3YYUwT8XB4L48H7innqZk74Vev7w4nSmLDReP2RQUoP1PAUJStNQUbFb4vnHKnNNvvLEmexRV            <button onclick="copyToClipboard()">
                 <img src="copy.png" alt="Copy" class="copy-icon">
             </button>
         </p>
-        <div id="announcements">
-            <!-- <h1 class="announcement-title">
-                Announcement
-            </h1> -->
-            <p class="disclaimer">
-                2024-12-06: Move complete.
-            </p>
-        </div>
+        <p>Or with Liberapay (PayPal, Credit Card):</p>
+        <p id="xmrAddress" class="xmr-address">
+        <a href=https://liberapay.com/tsutaja>https://liberapay.com/tsutaja</a>        </p>
+        <p class="disclaimer">
+        2024-21-06: Torrents and temporary file uploading added        </p>
+        <p>max 200 Gigabyte (GB) filesize</p>
         <p>
-            <a href="about.php">About</a> / <a href="nojs.php">JavaScript-less uploader</a> / <a href="deletions.php">Deletion Log</a> / <a href="https://fuckthefeds.top">Fuck The Feds Guide</a> /
-            <a href="https://file.haus">file.haus (probably offline forever)</a> / <a href="https://filehaus.top">filehaus.top (online)</a> / <a href="https://filehaus.pk">filehaus.pk (online)</a> / <a href="https://filehaus.su">filehaus.su (online)</a> / <a href="http://fileha3hjvudqs2moembtaegnpjo5ptec3tomf5dlxx6ydwtajkkahyd.onion">.onion (online)</a><a href="http://xr256v4weabr3rdz3nqzb27bv3gkwjisuf2d57urqtmh3gx3w7da.b32.i2p">.b32.i2p (online)</a> / <a href="http://nipqehne9zrtpryw6ig5y9gu7c8gwt8ymrrncufxg1g8wf5t4rqo.loki">.loki (online)</a><br>
+            <a href="about.php">About</a> / <a href="nojs.php">JavaScript-less uploader</a> / <a href="deletions.php">Deletion Log</a>  / <a href="https://fuckthefeds.top">Fuck The Feds Guide</a> /
+            <a href="https://file.haus">file.haus (probably offline forever)</a> / <a href="https://filehaus.top">filehaus.top (online)</a> / <a href="https://filehaus.pk">filehaus.pk (online)</a> / <a href="https://filehaus.su">filehaus.su (online)</a>  / <a href="http://fileha3hjvudqs2moembtaegnpjo5ptec3tomf5dlxx6ydwtajkkahyd.onion">.onion (online)</a><a href="http://xr256v4weabr3rdz3nqzb27bv3gkwjisuf2d57urqtmh3gx3w7da.b32.i2p">.b32.i2p (online)</a> / <a href="http://nipqehne9zrtpryw6ig5y9gu7c8gwt8ymrrncufxg1g8wf5t4rqo.loki">.loki (online)</a><br>
         </p>
-        <div class="kPiS6ujGnQ"><p>YOUR AD HERE. Contact @tsutaja on Telegram for more information</p></div><br>
-        <div class="kPiS6ujGnQ"><p>YOUR AD HERE. Contact @tsutaja on Telegram for more information</p></div>
+
     </main>
     <script>
         function copyToClipboard() {
-            // Get the text field
             var copyText = document.getElementById("xmrAddress").innerText.split(" Copy text")[0];
-
-            // Create a temporary textarea element
             var tempInput = document.createElement("textarea");
             tempInput.value = copyText;
             document.body.appendChild(tempInput);
-
-            // Select the text field
             tempInput.select();
             tempInput.setSelectionRange(0, 99999); // For mobile devices
-
-            // Copy the text inside the text field
             navigator.clipboard.writeText(tempInput.value);
-
-            // Alert the copied text
             alert("Copied the text: " + tempInput.value);
-
-            // Remove the temporary textarea element
             document.body.removeChild(tempInput);
         }
     </script>
